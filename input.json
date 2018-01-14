@@ -1,0 +1,26 @@
+{
+ "adq":{
+   "inputFiles":{
+      "dataSetName":"Emp.txt",
+      "namespace":"/Users/shuvamoymondal/Scala_Spark_Proj/",
+      "type":"txt",
+      "delimiter":","
+      "characterSet":"ISO_8859_1",
+      "schemaPath":"Nebula",
+      "multipleFiles":true
+                 },
+    "outputFiles":{
+       "dataSetName":"emp.parquet",
+       "namespace":"/Users/shuvamoymondal/output/",
+       "type":"parquet",
+       "delimiter":",",
+       "overWriteOutputFile":"true",
+     "rejectFileLocations":{
+        "dataSetName":"emp.rej",
+        "namespace":"/Users/shuvamoymondal/rej/",
+        "rejectThresold":"0",
+        "include":"false"
+      }
+    }
+  }
+}     
