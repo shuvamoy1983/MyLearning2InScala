@@ -1,8 +1,10 @@
 package Project
 
 import org.apache.log4j._
+import Project.utils.AllFunctions._
 import Project.utils.AllFunctions
 import Project.utils.AllFunctions.DonutConverstions._
+import Project.utils.HigherOrderFunctions.{LOG, _}
 
 
 
@@ -58,7 +60,40 @@ object App {
       println("donut.isFavoriteDonut",donut.isFavoriteDonut)
       println(convert.conversion)
 
+      println("Example of Currying function",currying_function(20)(discount)(storename))
+
+      ////  Higher Order Function calll starts here
+
+      println("\nStep 3: How to call higher order function and pass an anonymous function as parameter")
+      val totalCostOf5Donuts = totalCostWithDiscountFunctionParameter("Glazed Donut")(5){totalcost =>
+        val discount = 2 // assume you fetch discount from database
+        println(totalcost)
+        totalcost - discount
+
+      }
+      println(totalCostOf5Donuts)
+
+      /// Now call another same defined function for higher order function
+      val chk = totalCostWithDiscountFunctionParameter("Glazed Donut")(5)(test)
+      print("chk",chk)
+
+      //How to define a List with Tuple3 elements
+      LOG.info("Step 1: How to define a List with Tuple3 elements: Call by name with parameter")
+      val list = List(("Donut", 5,5.0),("Cake", 5,5.0),("Pasta",5,5.0))
+      println("The place order value: " ,placeOrder(list)(2))
+
+     // How to call a function without providing its callback parameter
+      println(finalReport())
+      println(finalReport(Some(
+        ()=>
+      println("Printing finished")
+      )
+      )
+      )
+
+
     }
+
 
 
     catch {

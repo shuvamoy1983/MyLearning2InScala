@@ -88,5 +88,11 @@ object AllFunctions {
     implicit def stringToDonutString(s: String) = new DonutString(s)
   }
 
+  // Example of Currying functions
+  def currying_function(price: Double)(dis:Double)(s:String):Double = {
+    println(s"discounted price for $s is below")
+    val dis_price = price * dis
+    dis_price
+  }
 
 }
